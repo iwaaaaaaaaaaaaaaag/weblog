@@ -1,0 +1,42 @@
+{
+  "name": "weblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-sass": "^4.0.0",
+    "@types/gulp-uglify": "^3.0.6",
+    "@types/require-dir": "^1.0.1",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "require-dir": "^1.2.0"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "build-dev": "set NODE_ENV=development && gulp",
+    "build-prod": "set NODE_ENV=production && gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iwag0824/weblog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iwag0824/weblog/issues"
+  },
+  "homepage": "https://github.com/iwag0824/weblog#readme"
+}
