@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
-//[2020-09-11T23:16:47.465] [INFO] default - メッセージ
 var path_1 = __importDefault(require("path"));
 var ROOT = path_1.default.join(__dirname, "../");
 exports.config = {
@@ -15,39 +14,19 @@ exports.config = {
         FileLogAppender: {
             type: "file",
             filename: path_1.default.join(ROOT, "./log/system/system.log"),
-            maxLogSize: 5000000,
+            maxLogsize: 50000000,
             backup: 10
-        },
-        MultiFileLogAppender: {
-            type: "multiFile",
-            base: path_1.default.join(ROOT, "./log/application/"),
-            property: "key",
-            extension: ".log"
-        },
-        DateRollingFileLogAppender: {
-            type: "dateFile",
-            filename: path_1.default.join(ROOT, "./log/access/access.log"),
-            pattern: "-yyyyMMdd",
-            daysToKeep: 30
         }
     },
     categories: {
-        "default": {
+        default: {
             appenders: ["ConsoleLogAppender"],
             level: "ALL"
         },
         system: {
             appenders: ["FileLogAppender"],
             level: "ERROR"
-        },
-        application: {
-            appenders: ["MultiFileLogAppender"],
-            level: "ERROR"
-        },
-        access: {
-            appenders: ["DateRollingFileLogAppender"],
-            level: "INFO"
         }
     }
 };
-//# sourceMappingURL=log4js.config.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibG9nNGpzLmNvbmZpZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImxvZzRqcy5jb25maWcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUEsOENBQXVCO0FBQ3ZCLElBQU0sSUFBSSxHQUFHLGNBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLEtBQUssQ0FBQyxDQUFBO0FBQzNCLFFBQUEsTUFBTSxHQUNuQjtJQUNJLFNBQVMsRUFBRTtRQUNYLGtCQUFrQixFQUFFO1lBQ2hCLElBQUksRUFBRSxTQUFTO1NBQ2xCO1FBQ0QsZUFBZSxFQUFDO1lBQ1osSUFBSSxFQUFDLE1BQU07WUFDWCxRQUFRLEVBQUUsY0FBSSxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUseUJBQXlCLENBQUM7WUFDcEQsVUFBVSxFQUFFLFFBQVE7WUFDcEIsTUFBTSxFQUFFLEVBQUU7U0FDYjtLQUNBO0lBQ0QsVUFBVSxFQUFFO1FBQ1IsT0FBTyxFQUFFO1lBQ0wsU0FBUyxFQUFFLENBQUMsb0JBQW9CLENBQUM7WUFDakMsS0FBSyxFQUFFLEtBQUs7U0FDZjtRQUNELE1BQU0sRUFBRTtZQUNKLFNBQVMsRUFBRSxDQUFDLGlCQUFpQixDQUFDO1lBQzlCLEtBQUssRUFBRSxPQUFPO1NBQ2pCO0tBQ0o7Q0FDSixDQUFBIn0=
