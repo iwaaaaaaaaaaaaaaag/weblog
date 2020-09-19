@@ -4,8 +4,8 @@ export interface Posts {
     update: Date,
     title: string,
     content: string,
-    keywords: string[],
-    authors: string[]
+    keywords: string,
+    authors: string
 }
 
 export interface Users {

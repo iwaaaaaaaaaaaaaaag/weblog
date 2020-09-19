@@ -10,7 +10,7 @@ const InsertPosts = function(db: MongoClient.Db){
             published: new Date(2017, 7, 8),
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
-            content: "test１",
+            content: "test1",
             keywords:["Node.js"],
             authors: ["Yuta Sato"]
         },
@@ -19,10 +19,47 @@ const InsertPosts = function(db: MongoClient.Db){
             published: new Date(2017, 7, 8),
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
-            content: "test１",
+            content: "test2",
+            keywords:["Node.js"],
+            authors: ["Yuta Sato"]
+        },
+        {
+            url: "/2017/09/hoge.html",
+            published: new Date(2017, 7, 8),
+            update: new Date(2017, 7, 8),
+            title: "Node.js 応用",
+            content: "test3",
+            keywords:["Node.js"],
+            authors: ["Yuta Sato"]
+        },
+        {
+            url: "/2017/10/hoge.html",
+            published: new Date(2017, 7, 8),
+            update: new Date(2017, 7, 8),
+            title: "Node.js 応用",
+            content: "test4",
+            keywords:["Node.js"],
+            authors: ["Yuta Sato"]
+        },
+        {
+            url: "/2017/11/hoge.html",
+            published: new Date(2017, 7, 8),
+            update: new Date(2017, 7, 8),
+            title: "Node.js 応用",
+            content: "test5",
+            keywords:["Node.js"],
+            authors: ["Yuta Sato"]
+        },
+        {
+            url: "/2017/12/hoge.html",
+            published: new Date(2017, 7, 8),
+            update: new Date(2017, 7, 8),
+            title: "Node.js 応用",
+            content: "test5",
             keywords:["Node.js"],
             authors: ["Yuta Sato"]
         }
+
         ]
     return Promise.all([
         db.collection("posts").insertMany(postsData),
