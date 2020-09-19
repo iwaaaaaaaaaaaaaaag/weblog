@@ -8,4 +8,4 @@ exports.config = {
         family: 4
     }
 };
-//# sourceMappingURL=mongodb.config.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9uZ29kYi5jb25maWcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJtb25nb2RiLmNvbmZpZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBYSxRQUFBLE1BQU0sR0FBRztJQUNsQixjQUFjLEVBQUUsNENBQTRDO0lBQzVELFFBQVEsRUFBRSxRQUFRO0lBQ2xCLE9BQU8sRUFBRTtRQUNMLE1BQU0sRUFBRSxDQUE2QjtLQUN4QztDQUNKLENBQUEifQ==

@@ -5,40 +5,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 var mongodb_config_1 = require("../config/mongodb.config");
-var app_config_1 = require("../config/app.config");
 var express_1 = __importDefault(require("express"));
+var mongodb_1 = __importDefault(require("mongodb"));
 exports.router = express_1.default();
-var mongodb_1 = require("mongodb");
-var MAX_TIME_PER_PAGE = app_config_1.search.search.MAX_ITEM_PER_PAGE;
 exports.router.get("/", function (req, res) {
-    var page = req.query.page ? parseInt(req.query.page) : 1;
     var keyword = req.query.keyword || "";
     var regexp = new RegExp(".*" + keyword + ".*");
-    var query = {
-        $or: [{ title: regexp }, { content: regexp }]
-    };
-    mongodb_1.MongoClient.connect(mongodb_config_1.config.CONNECTION_URL, mongodb_config_1.config.OPTIONS, function (error, client) {
+    mongodb_1.default.connect(mongodb_config_1.config.CONNECTION_URL, mongodb_config_1.config.OPTIONS, function (error, client) {
         var db = client.db(mongodb_config_1.config.DATABASE);
-        Promise.all([
-            db.collection("posts")
-                .find(query)
-                .count(),
-            db.collection("posts")
-                .find(query)
-                .sort({ published: -1 })
-                .skip((page - 1) * MAX_TIME_PER_PAGE)
-                .limit(MAX_TIME_PER_PAGE)
-                .toArray()
-        ])
-            .then(function (results) {
+        db.collection("posts").find({
+            $or: [{ title: regexp }, { content: regexp }]
+        }).sort({ published: -1 })
+            .toArray()
+            .then(function (list) {
             var data = {
                 keyword: keyword,
-                count: results[0],
-                list: results[1],
-                pagination: {
-                    max: Math.ceil(results[0] / MAX_TIME_PER_PAGE),
-                    current: page
-                }
+                list: list
             };
             res.render("./search/list.ejs", data);
         }).catch(function (error) {
@@ -48,4 +30,4 @@ exports.router.get("/", function (req, res) {
         });
     });
 });
-//# sourceMappingURL=search.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2VhcmNoLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2VhcmNoLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUNBLDJEQUErQztBQUMvQyxvREFBNEI7QUFDNUIsb0RBQWlDO0FBRXBCLFFBQUEsTUFBTSxHQUFHLGlCQUFNLEVBQUUsQ0FBQTtBQUU5QixjQUFNLENBQUMsR0FBRyxDQUFDLEdBQUcsRUFBRSxVQUFDLEdBQUcsRUFBRSxHQUFHO0lBQ3JCLElBQU0sT0FBTyxHQUFHLEdBQUcsQ0FBQyxLQUFLLENBQUMsT0FBTyxJQUFJLEVBQUUsQ0FBQTtJQUN2QyxJQUFNLE1BQU0sR0FBRyxJQUFJLE1BQU0sQ0FBQyxPQUFLLE9BQU8sT0FBSSxDQUFDLENBQUE7SUFFM0MsaUJBQVcsQ0FBQyxPQUFPLENBQUMsdUJBQU0sQ0FBQyxjQUFjLEVBQUUsdUJBQU0sQ0FBQyxPQUFPLEVBQUUsVUFBQyxLQUFLLEVBQUUsTUFBTTtRQUNyRSxJQUFNLEVBQUUsR0FBRyxNQUFNLENBQUMsRUFBRSxDQUFDLHVCQUFNLENBQUMsUUFBUSxDQUFDLENBQUE7UUFDckMsRUFBRSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsQ0FBQyxJQUFJLENBQUM7WUFDeEIsR0FBRyxFQUFFLENBQUMsRUFBQyxLQUFLLEVBQUUsTUFBTSxFQUFDLEVBQUUsRUFBQyxPQUFPLEVBQUUsTUFBTSxFQUFDLENBQUM7U0FDNUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxFQUFFLFNBQVMsRUFBRSxDQUFDLENBQUMsRUFBQyxDQUFDO2FBQ3hCLE9BQU8sRUFBRTthQUNULElBQUksQ0FBQyxVQUFDLElBQTBCO1lBQ2pDLElBQU0sSUFBSSxHQUFHO2dCQUNULE9BQU8sU0FBQTtnQkFDUCxJQUFJLE1BQUE7YUFDUCxDQUFBO1lBQ0QsR0FBRyxDQUFDLE1BQU0sQ0FBQyxtQkFBbUIsRUFBRSxJQUFJLENBQUMsQ0FBQTtRQUNyQyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsVUFBQyxLQUE0QjtZQUNsQyxNQUFNLEtBQUssQ0FBQTtRQUNmLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQztZQUNKLE1BQU0sQ0FBQyxLQUFLLEVBQUUsQ0FBQTtRQUNsQixDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUMsQ0FBQyxDQUFBO0FBQ04sQ0FBQyxDQUFDLENBQUEifQ==
