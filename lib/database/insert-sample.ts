@@ -11,8 +11,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test1",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         },
         {
             url: "/2017/08/hoge.html",
@@ -20,8 +20,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test2",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         },
         {
             url: "/2017/09/hoge.html",
@@ -29,8 +29,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test3",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         },
         {
             url: "/2017/10/hoge.html",
@@ -38,8 +38,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test4",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         },
         {
             url: "/2017/11/hoge.html",
@@ -47,8 +47,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test5",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         },
         {
             url: "/2017/12/hoge.html",
@@ -56,8 +56,8 @@ const InsertPosts = function(db: MongoClient.Db){
             update: new Date(2017, 7, 8),
             title: "Node.js 応用",
             content: "test5",
-            keywords:["Node.js"],
-            authors: ["Yuta Sato"]
+            keywords:"Node.js",
+            authors: "Yuta Sato"
         }
 
         ]

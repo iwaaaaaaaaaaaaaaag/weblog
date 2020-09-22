@@ -1,9 +1,12 @@
+ import {config} from "./config/app.config"
 import express from "express"
 import {router as indexRouter} from "./routes/index"
 import {router as postsRouter} from "./routes/posts"
 import {router as searchRouter} from "./routes/search"
 import {router as accountRouter} from "./routes/account"
 import bodyParser from "body-parser"
+import cookieParser from "cookie-parser"
+import session from "express-session"
 const app = express()
 import {console as consoleLogger, application as applicationLogger} from "./lib/log/logger"
 import {systemLoggerMiddleware} from "./lib/log/systemlogger"
@@ -19,9 +22,16 @@ app.use("/public", express.static(__dirname + "/public/" + (process.env.NODE_ENV
 //アクセスログを設定する
 app.use(accessLoggerMiddleware())
 
+app.use(cookieParser())
+app.use(session({
+    secret: config.security.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    name: "sid"
+}))
+
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-
 
 //routerを設定
 app.use("/", indexRouter )
