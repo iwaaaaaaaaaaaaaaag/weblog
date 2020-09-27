@@ -1,6 +1,6 @@
 import * as type from "../lib/database/collection_type"
 import { config as app_config } from "../config/app.config"
-import { config as mongodb_donfig } from "../config/mongodb.config"
+import { config as mongodb_config } from "../config/mongodb.config"
 import Router from "express"
 import MongoClient from "mongodb"
 
@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
     const query = {
         $or: [{ title: regexp }, { content: regexp }]
     }
-    MongoClient.connect(mongodb_donfig.CONNECTION_URL, mongodb_donfig.OPTIONS, (error, client) => {
-        const db = client.db(mongodb_donfig.DATABASE)
+    MongoClient.connect(mongodb_config.CONNECTION_URL, mongodb_config.OPTIONS, (error, client) => {
+        const db = client.db(mongodb_config.DATABASE)
 
         Promise.all([
             db.collection("posts")

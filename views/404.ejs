@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="ja" >
+  <head>
+    <title>404: Not Found</title>
+
+    <%- include("./_share/stylesheets.ejs") %>
+
+  </head>
+  <body >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+  <div class="container">
+    <span class="skiplink-text">Skip to main content</span>
+  </div>
+</a>
+
+<%- include("./_share/navbar.ejs") %>
+
+<main role="main" class="container">
+
+  <div class="border-bottom mt-5 mb-5">
+    <!-- <h1>Bootstrap starter template</h1> -->
+    <h1>404: Not Found</h1>
+    <!-- <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p> -->
+  </div>
+  <h2>リクエスト</h2>
+  <table class="table table-bordered">
+      <tr>
+          <th>リクエスト</th>
+          <td>
+              <span><%= data.method %></span>
+              <span><%= data.url %></span>
+              <span><%= (data.protocol || "").toUpperCase() %>/<%= data.version %></span>
+            </td>
+      </tr>
+  </table>  
+  
+</main><!-- /.container -->
+
+<%- include("./_share/javascripts.ejs") %>
+
+</body>
+</html>

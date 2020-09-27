@@ -15,6 +15,11 @@ export interface Users {
     role: string
 }
 
+export interface UsersSession extends Users {
+    permissions: string[]
+}
+
+
 export interface Privileges {
     role: string,
     permissions: string[]    
